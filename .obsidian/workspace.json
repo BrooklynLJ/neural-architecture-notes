@@ -11,10 +11,14 @@
             "id": "9665765dea0cad79",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Simoni Questions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Simoni Questions"
             }
           }
         ]
@@ -204,8 +208,9 @@
   "active": "9665765dea0cad79",
   "lastOpenFiles": [
     "Setup Log.md",
-    "Current SoA Investigation.md",
     "Simoni Questions.md",
+    "Images/Pasted image 20260330151421.png",
+    "Current SoA Investigation.md",
     "Images/Pasted image 20260416153730.png",
     "Images/Pasted image 20260416153541.png",
     "Images/Pasted image 20260416153720.png",
@@ -216,7 +221,6 @@
     "Images/Pasted image 20260408171510.png",
     "Images/Pasted image 20260408150214.png",
     "Images/Pasted image 20260408145902.png",
-    "Images/Pasted image 20260407214410.png",
     "Images"
   ]
 }
