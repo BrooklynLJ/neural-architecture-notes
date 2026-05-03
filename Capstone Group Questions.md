@@ -14,6 +14,14 @@
 - (B) Why do we care about writing to an SD card instead of something more simple like outputting over uart to a host PC? (or using the micropython debugger)
 - (B) what is the micropython MCU used for?
 - (B) Are we trying to implement learning/neuroplasticity?
+- (B) NeuroML describes neural networks, it seems like NEURON is the main simulator used for NeuroML models, are we trying to make a NEURON accelerator? What about EDEN (natively neuroML compatible)? 
+- (B) How were the look up tables created, 
+	- How are they established in verilog, 
+	- Are they evenly spaced or more concentrated in areas of curvature?
+	- Floating point or integer?
+	- what stage to they translate between?
+		- Voltage all the way to conductance? 
+		- Or just voltage to alpha and beta?
 
 
 ### Has this previously been looked into?
