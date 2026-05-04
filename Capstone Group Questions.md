@@ -22,6 +22,7 @@
 	- what stage to they translate between?
 		- Voltage all the way to conductance? 
 		- Or just voltage to alpha and beta?
+		- Listed in "our_userspace.c" as loading "V tables", "b tables", and "m tables" 
 
 
 ### Has this previously been looked into?
