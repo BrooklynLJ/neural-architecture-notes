@@ -58,6 +58,7 @@
 	- Size of network
 - (B) With Efabless having shut down(?), is there a path forward with this asic design
 	- Is caravel vendor/node specific?
+- (B) What kind of network hierarchy is planned, if any?
 
 
 
