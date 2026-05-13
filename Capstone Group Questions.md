@@ -10,11 +10,16 @@
 - (T) How is the LUT going to look like when it eventually gets fabricated? Is it going to be in SRAM?
 - (B) Why is the github repo so big (partially my fault)
 - (B) are we trying to accelerate simulation of biological models, or accelerate computation of machine learning models
+	- biological
 - (B) How much usage is devoted specifically to the accelerators & risc core? (do could we just demo a connection of 4 Neurons on 1 FPGA?)
 - (B) Why do we care about writing to an SD card instead of something more simple like outputting over uart to a host PC? (or using the micropython debugger)
+	- don't really care
 - (B) what is the micropython MCU used for?
+	- inits LUTS and displays them on display
 - (B) Are we trying to implement learning/neuroplasticity?
+	- could be added in software
 - (B) NeuroML describes neural networks, it seems like NEURON is the main simulator used for NeuroML models, are we trying to make a NEURON accelerator? What about EDEN (natively neuroML compatible)? 
+	- 
 - (B) How were the look up tables created, 
 	- How are they established in verilog, 
 	- Are they evenly spaced or more concentrated in areas of curvature?
