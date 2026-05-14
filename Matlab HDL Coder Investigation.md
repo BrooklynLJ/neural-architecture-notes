@@ -1,6 +1,7 @@
+Matlab maintains a bunch of FPGA optimized fixed point HDL compatible modules which is pretty cool.
 You can do fixed point operations with these.
 ![[Pasted image 20260513200736.png]]
-This covers the case below
+This covers the familiar case below 
 $$\begin{equation}
 \frac{1}{1+e^{-x}}
 \end{equation}$$
@@ -16,3 +17,9 @@ coth(x) we can accelerate with a different matlab CORDIC function [**cordictanh(
 There is also a [cordicexp()](https://www.mathworks.com/help/fixedpoint/ref/cordiccexp.html) for the remaining functions.
 
 [Relevant paper](https://doi.org/10.1016/j.jocs.2025.102567) if we wanted to try to reimplement what the matlab gods have done for us 
+[Relevant repo](https://github.com/kaustuvsahu/CORDIC-Algorithm#) that simulates some verilog cordic calculations and compares them to the matlab magic one
+[Relevant Lab](https://www.csl.cornell.edu/courses/ece6775/pdf/lab1_handout.pdf)
+[Relevant Open Source Textbook for CORDIC](https://kastner.ucsd.edu/hlsbook/)
+[Possibly relevant article](https://www.eetimes.com/how-to-use-the-cordic-algorithm-in-your-fpga-design/)
+Opens with this:
+![[Pasted image 20260513214042.png]]
