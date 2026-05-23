@@ -347,3 +347,6 @@ git gc --prune=now --aggressive
 
 ```
 * eventually, properly clean the files out using https://github.com/newren/git-filter-repo to remove them from the history for ever
+
+## Cross Compiling Caravel Firmware:
+Used this guide in addition to what was present in the 
