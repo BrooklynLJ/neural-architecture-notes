@@ -217,9 +217,72 @@ Got a warning that a file was missing, and I knew that I didn't want it, so I we
 ### Issue 1: vivado dies when I click synthesize "realloc(): invalid pointer"
 vivado would error only when I clicked synthesize, (synthesis would still complete in the background?)
 #### What it looked like:
-![[Pasted image 20260408171510.png]]
-In the log it appeared to be an issue with libudev.so.1,
-![[Pasted image 20260408171700.png]]
+* ```bash
+realloc(): invalid old size
+Abnormal program termination (6)
+Please check '/home/ubuntu/work/Caravel_NPU_FPGA_2025/hs_err_pid2247.log' for details
+```
+
+In the log it appeared to be an issue with libudev.so.1:
+```
+#
+# An unexpected error has occurred (6)
+#
+Stack:
+/lib/x86_64-linux-gnu/libc.so.6(+0x42520) [0x7f9264c42520]
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c) [0x7f9264c969fc]
+/lib/x86_64-linux-gnu/libc.so.6(raise+0x16) [0x7f9264c42476]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3) [0x7f9264c287f3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x89677) [0x7f9264c89677]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc) [0x7f9264ca0cfc]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa4c6c) [0x7f9264ca4c6c]
+/lib/x86_64-linux-gnu/libc.so.6(realloc+0x122) [0x7f9264ca5862]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x15707) [0x7f923f873707]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x1bb1b) [0x7f923f879b1b]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x75ff) [0x7f923f8655ff]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x7b6b) [0x7f923f865b6b]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x10192) [0x7f923f86e192]
+/lib/x86_64-linux-gnu/libudev.so.1(+0x105d3) [0x7f923f86e5d3]
+/lib/x86_64-linux-gnu/libudev.so.1(udev_enumerate_scan_devices+0x2a1) [0x7f923f86f341]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(+0x12e165) [0x7f925c52e165]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(xilinxd_52bd866351b78202+0x9) [0x7f925c52e5e9]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(+0xdb467) [0x7f925c4db467]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(xilinxd_52bd862318b59a70+0x86) [0x7f925c4db226]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(+0xc879f) [0x7f925c4c879f]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(xilinxd_52bd9e9e1c8e52fb+0x1b) [0x7f925c4d253b]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libXil_lmgr11.so(xilinxd_52bd700d1bd3c616+0x30) [0x7f925c4d25d0]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonxillic.so(XilReg::Utils::GetHostInfo[abi:cxx11](XilReg::Utils::HostInfoType, bool) const+0x1a0) [0x7f926147fe20]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonxillic.so(XilReg::Utils::GetHostInfoFormatted[abi:cxx11](XilReg::Utils::HostInfoType, bool) const+0x59) [0x7f9261486799]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonxillic.so(XilReg::Utils::GetHostInfo[abi:cxx11]() const+0x103) [0x7f9261486a53]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonxillic.so(XilReg::Utils::GetRegInfo(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, bool)+0x96) [0x7f926148a406]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonxillic.so(XilReg::Utils::GetRegInfoWebTalk(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x60) [0x7f926148a630]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_project.so(HAPRWebtalkHelper::getRegistrationId[abi:cxx11]() const+0x3d) [0x7f92407e2f4d]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_project.so(HAPRWebtalkHelper::HAPRWebtalkHelper(HAPRProject*, HAPRDesign*, HWEWebtalkMgr*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x178) [0x7f92407e5648]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_tcltasks.so(+0x1cd17a5) [0x7f92570d17a5]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_tcltasks.so(+0x1cdb03c) [0x7f92570db03c]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_common.so(+0xd7d9bf) [0x7f926657d9bf]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x3356f) [0x7f926083356f]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x76945) [0x7f9260876945]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x7e0f9) [0x7f926087e0f9]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(TclEvalObjEx+0x76) [0x7f9260835216]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_common.so(+0xd7b3b3) [0x7f926657b3b3]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(Tcl_ServiceEvent+0x7f) [0x7f92608a7bef]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(Tcl_DoOneEvent+0x154) [0x7f92608a7f24]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commontasks.so(+0x2bdc07) [0x7f92596bdc07]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commontasks.so(+0x2c689e) [0x7f92596c689e]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commontasks.so(+0x2c717f) [0x7f92596c717f]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_common.so(+0xd7d9bf) [0x7f926657d9bf]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x3356f) [0x7f926083356f]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x76945) [0x7f9260876945]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(+0x7e0f9) [0x7f926087e0f9]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(TclEvalObjEx+0x76) [0x7f9260835216]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_commonmain.so(+0xe752) [0x7f9267376752]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/libtcl8.5.so(Tcl_Main+0x1d0) [0x7f92608a02f0]
+/tools/Xilinx/Vivado/2023.2/lib/lnx64.o/librdi_common.so(+0xda6f7b) [0x7f92665a6f7b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x94ac3) [0x7f9264c94ac3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x1268d0) [0x7f9264d268d0]
+```
+#### Solution
 * According to the xilinx forum, this is a common issue when running in a container, and the initial solution is to always launch vivado with the following command in order to ensure it had the correct library loaded.
 `LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libudev.so.1 vivado`
 * According to the xilinx forum, this is an issue possibly caused by a 3rd party library thats used for internet stuff. . . (I think its an attempted telemetry call over udev devices. . . )
