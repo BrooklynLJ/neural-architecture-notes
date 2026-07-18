@@ -210,6 +210,9 @@ Attempting to use the [Xilinx Board Store](https://github.com/Xilinx/XilinxBoard
 
 # Remove A Dead / Missing File Using Tcl:
 Got a warning that a file was missing, and I knew that I didn't want it, so I went to go remove it from the project.
+```tcl
+remove_files sources_1/imports/imports/TopLevel/MainMemory.v
+```
 ![[Pasted image 20260407214410.png]]
 
 
@@ -349,4 +352,38 @@ git gc --prune=now --aggressive
 * eventually, properly clean the files out using https://github.com/newren/git-filter-repo to remove them from the history for ever
 
 ## Cross Compiling Caravel Firmware:
-Used this guide in addition to what was present in the 
+Used this guide in addition to what was present in the repo
+https://riscv.epcc.ed.ac.uk/documentation/how-to/install-toolchain/
+
+Ran into error when initializing submodules of toolchain repo:
+#### Error:
+```bash
+Submodule path 'binutils': checked out '49d4d3fafa4ec4ff5a3460d91d5b1ed5286487db'
+error: Server does not allow request for unadvertised object 12ec17e7f192febdf4a316e5bffd1a5d4a9ea698
+fatal: Fetched in submodule path 'dejagnu', but it did not contain 12ec17e7f192febdf4a316e5bffd1a5d4a9ea698. Direct fetching of that commit failed.
+fatal: 
+```
+#### Resolution:
+pinned to hashes that don't exist anymore
+```bash
+git submodule update --init --recursive --remote
+```
+
+```bash
+git clone https://github.com/riscv/riscv-gnu-toolchain
+cd riscv-gnu-toolchain
+git submodule update --init --recursive binutils gcc glibc linux-headers
+```
+
+```
+git submodule sync --recursive #important part
+git submodule update --init --recursive --remote
+```
+
+Then built with 
+
+```bash 
+sudo mkdir -p /opt/riscv sudo chown -R $(whoami) /opt/riscv
+./configure --prefix=/opt/riscv --with-arch=rv32gc --with-abi=ilp32d
+make linux -j10 #adjust down if stuff crashes
+```
