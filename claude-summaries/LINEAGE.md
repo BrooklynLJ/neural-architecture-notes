@@ -62,25 +62,25 @@ Plus external upstreams (efabless Caravel, bol-edu lab, ZipCPU, LiteX, etc.) in
 
 ## Repo inventory (16 rhit-neuro + upstreams)
 
-| Repo | HEAD branch | First commit | Tip | #commits | Track |
-|---|---|---|---|---|---|
-| `parallel-neuro-simulation` | master | 2017-12-17 | 2020-12-15 | 264 | A |
-| `fixed-neuro-sim` | master | 2021-01-04 | 2022-03-26 | 11 | A |
-| `two-zedboard-sim` | main | 2021-05-20 | 2021-05-20 | 3 | A |
-| `24-25_parallel-neuro-simulation` | main | 2025-04-09 | 2025-04-30 | 4 | A |
-| `DECA-NeuroML_23-24` | main | 2024-04-03 | 2024-04-24 | 11 | B |
-| `24-25_neuroml` | main | 2024-04-03 | 2025-05-13 | 26 | B |
-| `caravel_FPGA` | main | 2022-10-21 | 2024-01-30 | 15 | C |
-| `DECA-Caravel-Programmer-22-23` | main | 2022-10-21 | 2024-02-08 | 27 | C |
-| `deca-caravel-programmer-vexriscv` | main | 2024-03-25 | 2024-04-24 | 27 | C |
-| `Caravel_FPGA_2025_-DEPRECATED-_` | Our_Userspace | 2025-03-18 | 2025-05-21 | 34 | C |
-| `Caravel_FPGA_2026` | main | 2025-05-07 | 2026-05-22 | 56 | C |
-| `Caravel_Accelerator_Modules` | main | 2022-12-14 | 2023-03-10 | 24 | D |
-| `deca-synapse-model-2324` | main | 2024-03-31 | 2024-04-24 | 6 | D |
-| `DECA-wbdma-23-24` | main | 2024-04-16 | 2024-04-24 | 8 | D |
-| `24-25_npu` | main | 2024-10-29 | 2025-05-06 | 69 | D |
-| `24-25_Synaptic_Communication_Loop` | main | 2025-05-30 | 2026-01-20 | 13 | D |
-| _(upstream)_ `outside-sources/caravel_mgmt_soc_litex` | main | — | 2024-01-03 | 601 | C |
+| Repo                                                  | HEAD branch   | First commit | Tip        | #commits | Track |
+| ----------------------------------------------------- | ------------- | ------------ | ---------- | -------- | ----- |
+| `parallel-neuro-simulation`                           | master        | 2017-12-17   | 2020-12-15 | 264      | A     |
+| `fixed-neuro-sim`                                     | master        | 2021-01-04   | 2022-03-26 | 11       | A     |
+| `two-zedboard-sim`                                    | main          | 2021-05-20   | 2021-05-20 | 3        | A     |
+| `24-25_parallel-neuro-simulation`                     | main          | 2025-04-09   | 2025-04-30 | 4        | A     |
+| `DECA-NeuroML_23-24`                                  | main          | 2024-04-03   | 2024-04-24 | 11       | B     |
+| `24-25_neuroml`                                       | main          | 2024-04-03   | 2025-05-13 | 26       | B     |
+| `caravel_FPGA`                                        | main          | 2022-10-21   | 2024-01-30 | 15       | C     |
+| `DECA-Caravel-Programmer-22-23`                       | main          | 2022-10-21   | 2024-02-08 | 27       | C     |
+| `deca-caravel-programmer-vexriscv`                    | main          | 2024-03-25   | 2024-04-24 | 27       | C     |
+| `Caravel_FPGA_2025_-DEPRECATED-_`                     | Our_Userspace | 2025-03-18   | 2025-05-21 | 34       | C     |
+| `Caravel_FPGA_2026`                                   | main          | 2025-05-07   | 2026-05-22 | 56       | C     |
+| `Caravel_Accelerator_Modules`                         | main          | 2022-12-14   | 2023-03-10 | 24       | D     |
+| `deca-synapse-model-2324`                             | main          | 2024-03-31   | 2024-04-24 | 6        | D     |
+| `DECA-wbdma-23-24`                                    | main          | 2024-04-16   | 2024-04-24 | 8        | D     |
+| `24-25_npu`                                           | main          | 2024-10-29   | 2025-05-06 | 69       | D     |
+| `24-25_Synaptic_Communication_Loop`                   | main          | 2025-05-30   | 2026-01-20 | 13       | D     |
+| _(upstream)_ `outside-sources/caravel_mgmt_soc_litex` | main          | —            | 2024-01-03 | 601      | C     |
 
 ---
 
