@@ -10,16 +10,16 @@ presence/absence across repos.
 
 ## 0. Repositories referenced, with exact versions inspected
 
-| # | Repo (owner/name) | Branch | Commit SHA inspected | Commit date | Role in this investigation |
-|---|---|---|---|---|---|
-| 1 | `efabless/caravel` | `main` | `27cbe49c90ba5362ad52c9968dd98e035c30c74f` | 2024-11-04 | Original ASIC harness (heavy, full hardened GDS) |
-| 2 | `efabless/caravel-lite` | `main` | `5593d992bbeb5608b7524bc279d91237371612f1` | 2024-09-12 | Stripped-GDS variant of #1 |
-| 3 | `efabless/caravel_mgmt_soc_litex` | `main` | `503eda0790085712ffef7f4ad8934c7daed3237f` | 2024-01-03 | Upstream drop-in management-core macro (also cloned **full history**, unshallow, for version-pinning in §9) |
-| 4 | `chipfoundry/caravel_user_project` | `main` | `b510613cec367828966b37583f9090ac5ddb6491` | 2026-04-23 | Currently-maintained ChipFoundry template (successor ecosystem to #1–#3) |
-| 5 | `antmicro/caravel` | `main` | `38492d9da4071eef2b9a32029fa9d4778a698cc1` | 2022-11-25 | Reference fork checked for origin of `_antmicro`-suffixed FPGA files (no match found — see §8) |
-| 6 | `rhit-neuro/Caravel_FPGA_2026` | `main` | `f4fbc6c912a477afda3ec27bf933990e926e1179` | 2026-05-15 | Current head-of-development FPGA project (per user, this branch/repo is canonical) |
-| 7 | `rhit-neuro/Caravel_FPGA_2026` | `brooklyn-onboarding` | `eb190cf2e66a1f8ad49c1145ad442f2818f809de` | 2026-05-22 | Cleaned-up version of #6, provided by user for this analysis |
-| 8 | `rhit-neuro/Caravel_FPGA_2025_-DEPRECATED-_` | `Our_Userspace` | `b0bf94a4fe243b71227ec7e1c4b6c6ceda7c6a0f` (branch tip) | 2025-05-20 | Predecessor repo; contains the original commit that first added `caravel_mgmt_soc_litex/` |
+| #   | Repo (owner/name)                            | Branch                | Commit SHA inspected                                    | Commit date | Role in this investigation                                                                                  |
+| --- | -------------------------------------------- | --------------------- | ------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| 1   | `efabless/caravel`                           | `main`                | `27cbe49c90ba5362ad52c9968dd98e035c30c74f`              | 2024-11-04  | Original ASIC harness (heavy, full hardened GDS)                                                            |
+| 2   | `efabless/caravel-lite`                      | `main`                | `5593d992bbeb5608b7524bc279d91237371612f1`              | 2024-09-12  | Stripped-GDS variant of #1                                                                                  |
+| 3   | `efabless/caravel_mgmt_soc_litex`            | `main`                | `503eda0790085712ffef7f4ad8934c7daed3237f`              | 2024-01-03  | Upstream drop-in management-core macro (also cloned **full history**, unshallow, for version-pinning in §9) |
+| 4   | `chipfoundry/caravel_user_project`           | `main`                | `b510613cec367828966b37583f9090ac5ddb6491`              | 2026-04-23  | Currently-maintained ChipFoundry template (successor ecosystem to #1–#3)                                    |
+| 5   | `antmicro/caravel`                           | `main`                | `38492d9da4071eef2b9a32029fa9d4778a698cc1`              | 2022-11-25  | Reference fork checked for origin of `_antmicro`-suffixed FPGA files (no match found — see §8)              |
+| 6   | `rhit-neuro/Caravel_FPGA_2026`               | `main`                | `f4fbc6c912a477afda3ec27bf933990e926e1179`              | 2026-05-15  | Current head-of-development FPGA project (per user, this branch/repo is canonical)                          |
+| 7   | `rhit-neuro/Caravel_FPGA_2026`               | `brooklyn-onboarding` | `eb190cf2e66a1f8ad49c1145ad442f2818f809de`              | 2026-05-22  | Cleaned-up version of #6, provided by user for this analysis                                                |
+| 8   | `rhit-neuro/Caravel_FPGA_2025_-DEPRECATED-_` | `Our_Userspace`       | `b0bf94a4fe243b71227ec7e1c4b6c6ceda7c6a0f` (branch tip) | 2025-05-20  | Predecessor repo; contains the original commit that first added `caravel_mgmt_soc_litex/`                   |
 
 Not independently deep-dived (referenced only): `chipfoundry/caravel`, `chipfoundry/caravel-lite`
 (both referenced by name/URL inside `chipfoundry/caravel_user_project`'s `Makefile`, not cloned).
