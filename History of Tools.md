@@ -1,0 +1,1 @@
+* apparently google used to require that you use caravel (https://youtu.be/3Lll9_-gYGg?si=H1yT_BIOBBUCQtJX&t=1888) but they no longer do that maybe? ChipFoundry def doesn't seem to do that, now they have [chipfoundry/openframe_user_project](https://github.com/chipfoundry/openframe_user_project)
